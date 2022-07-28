@@ -34,11 +34,24 @@ class AnimeApi {
         }
     }
 
-    this.getActionAnime = async (req, res) => {
+    this.getGenreAnime = async (req, res) => {
         try {
+            const genre = req.params.genre;
             const allAnime = await anime.model.aggregate([{$match:{
-                genre: {$in: ["action"]}
-            }},{ $sample: { size: 10 } }]);
+                genre: {$in: [genre]}
+            }},{ $sample: { size: 12 } }]);
+            res.status(200).json(allAnime)
+        } catch (err) {
+            res.status(500).json(err)
+        }
+    }
+
+    this.getAllGenreAnime = async (req, res) => {
+        try {
+            const genre = req.params.genre;
+            const allAnime = await anime.model.aggregate([{$match:{
+                genre: {$in: [genre]}
+            }}]);
             res.status(200).json(allAnime)
         } catch (err) {
             res.status(500).json(err)

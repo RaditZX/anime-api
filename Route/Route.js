@@ -5,7 +5,8 @@ module.exports = (app) => {
   
     app.get('/anime', AnimeApi.getRandomAnime);
     app.get('/allanime', AnimeApi.getAllAnime);
-    app.get('/anime/action', AnimeApi.getActionAnime);
+    app.get('/anime/genre/:genre', AnimeApi.getGenreAnime);
+    app.get('/allanime/genre/:genre', AnimeApi.getAllGenreAnime);
     app.get('/animehighrating', AnimeApi.gethighratingaAnime);
     app.get('/anime/:id', AnimeApi.getAnimeById);
     app.post('/anime',AnimeApi.uploadImage, AnimeApi.createAnime);

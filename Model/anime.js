@@ -8,7 +8,7 @@ class Anime{
             image: String,
             episodes: Number,
             score: Number,
-            genres: [String],
+            genres: String,
             premiered: String,
             duration: String,
             status: String,
@@ -18,6 +18,15 @@ class Anime{
             folder: String,
             scoreCount: Number,
             trailer: String,
+            createdAt: {
+                type: Date,
+                default: Date.now
+            },
+            updatedAt: {
+                type: Date,
+                default: Date.now
+            }
+
         })
         this.model = mongoose.model('anime', this.animeSchema)
           
