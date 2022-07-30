@@ -14,10 +14,17 @@ const storage = multer.diskStorage({
 
 class AnimeApi {
     constructor() {
-
     this.getAllAnime = async (req, res) => {
+        const search = req.query.title
         try {
-            const allanime = await anime.model.find({}).sort({title: 1});
+            const allanime = await anime.model.aggregate([{
+                $match: {
+                    title: {
+                        $regex: search ? search.charAt(0).toUpperCase() + search.slice(1) : '',
+                    }
+                }
+
+            }]).sort({title: 1});
             res.status(200).json(allanime);
         }
         catch (err) {
