@@ -1,0 +1,19 @@
+{
+    "builds":[
+      {
+        "src" : "./app.js",
+        "use" : "@vercel/node"
+      }
+    ],
+    "routes": [
+      { "src": "/anime", "dest": "/api/AnimeApi/getRandomAnime" },
+      { "src": "/allanime", "dest": "/api/AnimeApi/getAllAnime" },
+      { "src": "/anime/genre/:genre", "dest": "/api/AnimeApi/getGenreAnime" },
+      { "src": "/allanime/genre/:genre", "dest": "/api/AnimeApi/getAllGenreAnime" },
+      { "src": "/animehighrating", "dest": "/api/AnimeApi/getHighRatingAnime" },
+      { "src": "/anime/:id", "dest": "/api/AnimeApi/getAnimeById" },
+      { "src": "/anime", "methods": ["POST"], "dest": "/api/AnimeApi/createAnime" },
+      { "src": "/anime/:id", "methods": ["PUT"], "dest": "/api/AnimeApi/updateAnime" },
+      { "src": "/anime/:id", "methods": ["DELETE"], "dest": "/api/AnimeApi/deleteAnime" }
+    ]
+  }
