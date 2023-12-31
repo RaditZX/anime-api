@@ -1,4 +1,7 @@
 {
+  "engines": {
+    "node": "14.x"
+  },
   "dependencies": {
     "body-parser": "^1.20.0",
     "cors": "^2.8.5",
@@ -9,6 +12,6 @@
     "nodemon": "^2.0.19"
   },
   "scripts": {
-    "start": "nodemon  app.js"
+    "start": "node app.js"
   }
 }
